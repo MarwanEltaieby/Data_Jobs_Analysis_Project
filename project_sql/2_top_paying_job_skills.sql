@@ -28,12 +28,12 @@ SELECT
 FROM job_postings_fact
 LEFT JOIN company_dim
 ON job_postings_fact.company_id = company_dim.company_id
-WHERE job_title_short LIKE '%Data%' AND
+WHERE
 (
     salary_year_avg IS NOT NULL OR salary_hour_avg IS NOT NULL
 ) AND (
     job_schedule_type = 'Full-time' OR job_schedule_type = 'Part-time'
-) AND job_location = 'Anywhere'
+)
 ORDER BY yearly_salary DESC
 LIMIT 100
 )

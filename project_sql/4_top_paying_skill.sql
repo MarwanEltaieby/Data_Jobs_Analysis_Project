@@ -27,12 +27,10 @@ ON job_postings_fact.job_id = skills_job_dim.job_id
 INNER JOIN skills_dim 
 ON skills_job_dim.skill_id = skills_dim.skill_id
 WHERE 
-    job_title_short = 'Data Analyst' AND
     (salary_hour_avg IS NOT NULL OR salary_year_avg IS NOT NULL) AND
     (job_schedule_type = 'Full-time' OR job_schedule_type = 'Part-time')
 GROUP BY skills
-ORDER BY yearly_salary_avg DESC
-LIMIT 25;
+ORDER BY yearly_salary_avg DESC;
 
 -- JSON result
 
