@@ -21,7 +21,7 @@ INNER JOIN skills_dim
 ON skills_job_dim.skill_id = skills_dim.skill_id
 GROUP BY skills
 ORDER BY job_count DESC
-LIMIT 10;
+LIMIT 100;
 
 -- most in demand job for java
 SELECT 
